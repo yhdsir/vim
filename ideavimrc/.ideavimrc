@@ -1,0 +1,107 @@
+let mapleader=","
+
+
+" 选项配置
+set showmode
+set relativenumber
+set number
+
+
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <Space>w :w<CR>
+nnoremap <Space>q :q<CR>
+
+" Quit insert mode
+" inoremap jj <Esc>
+inoremap jk <Esc>
+" inoremap kk <Esc>
+
+
+""""""""""""""""""""" Insert mode start
+" insert mode
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-l> <Right>
+inoremap <C-k> <Up>
+inoremap <C-d> <Delete>
+inoremap <C-a> <Home>
+inoremap <C-i> <End>
+
+
+inoremap <C-0> :action SmartTypeCompletion<CR>
+
+inoremap <C-v> <Esc>:action EditorPaste<CR>i
+" inoremap <C-c> :action EditorCopy<CR>
+""""""""""""""""""""" 
+
+
+""""""""""""""""""""" 窗口 start
+" 移动窗口
+nnoremap <Space>ww <C-w>w
+nnoremap <Space>wj <C-w>j
+nnoremap <Space>wk <C-w>k
+nnoremap <Space>wh <C-w>h
+nnoremap <Space>wl <C-w>l
+" 关闭窗口
+nnoremap <Space>wc <C-w>c
+" 上下分屏
+nnoremap <Space>w- <C-w>s
+nnoremap <Space>ws <C-w>s
+" 左右分屏
+nnoremap <Space>w\| <C-w>v
+nnoremap <Space>wv <C-w>v
+""""""""""""""""""""" 窗口 end
+
+" 单词段落选择
+nnoremap <C-w> :action EditorSelectWord<CR>
+
+" 内置搜索看起来更好
+nnoremap / :action Find<CR>
+" but preserve ideavim search
+nnoremap <Space>/ /
+
+
+" 一些可用的快捷映射
+" clear the highlighted search result
+" commit csv
+nnoremap <C-k> :action CheckinProject<CR>
+
+nnoremap <Space>sc :nohlsearch<CR>
+
+nnoremap <Space>gc :action GotoClass<CR>
+nnoremap <Space>ga :action GotoAction<CR>
+nnoremap <Space>gs :action GotoSymbol<CR>
+nnoremap <Space>gf :action GotoFile<CR>
+nnoremap <Space>gi :action GotoImplementation<CR>
+" 定义位置
+nnoremap <Space>gd :action GotoDeclaration<CR>
+" 下个错误
+nnoremap <Space>gne :action GotoNextError<CR>
+" 上个错误
+nnoremap <Space>gpe :action GotoPreviousError<CR>
+
+" 查找 method 调用的所有文件
+nnoremap <Space>fu :action FindUsages<CR>
+
+" 右键 菜单功能
+nnoremap <Space>pm :action ShowPopupMenu<CR>
+vnoremap <C>pm :action ShowPopupMenu<CR>
+
+" 单块选择
+nnoremap <Space>v :action VimVisualToggleBlockMode<CR>
+
+"nnoremap <Space>sw :action EditorSelectWord<CR>
+"nnoremap <Space>usw :action EditorUnSelectWord<CR>
+
+
+"""""""""""""""""""""" 块选择
+" 设置快捷键将选中文本块复制至系统剪贴板
+vnoremap <leader>y "+y
+vnoremap <C-c> "+y
+vnoremap <C-v> "+p
+
+" 设置快捷键将系统剪贴板内容粘贴至 vim
+noremap <leader>p "+p
+vnoremap <leader>p "+p
+inoremap <leader>p <Esc>"+p
