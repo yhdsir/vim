@@ -1,0 +1,91 @@
+
+syntax on " 语法高亮
+
+
+set nobackup " 不产生备份文件
+
+
+set hlsearch " 搜索时高亮显示被找到的文本
+
+set laststatus=2 " 显示状态栏 (默认值为 1, 无法显示状态栏)
+
+set showcmd " 在底部显示上一条命令
+
+set wildmenu " 打开底部命令行的自动补全
+
+" set nu " 显示行号
+
+
+set tabstop=4 " 设定tab长度为4个空格
+
+
+set shiftwidth=4 " 缩进是4个空格
+
+
+set expandtab " 用空格键替换制表符
+
+
+set softtabstop=4 " 回退4个空格
+
+
+set encoding=utf-8 " 字符编码是utf-8
+
+
+set cindent " 使用 C/C++ 语言的自动缩进方式
+
+
+set autoindent " 设置自动对齐(缩进)：即每行的缩进值与上一行相等
+
+
+" set linebreak " 整词换行
+let mapleader = ","
+
+set relativenumber
+set number
+
+nnoremap <Space>w :w<cr>
+nnoremap <Space>q :q<cr>
+nnoremap <Space>q! :q!<cr>
+nnoremap <Space>sc :nohlsearch<cr>
+
+
+" quit insert mode
+inoremap jj <Esc>
+inoremap jk <Esc>
+inoremap kk <Esc>
+
+" Insert mode shortcut
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-d> <Delete>
+inoremap <C-a> <Home>
+"inoremap <C-i> <End>
+
+
+" 窗口
+nnoremap <Space>ww <C-w>w
+nnoremap <Space>wj <C-w>j
+nnoremap <Space>wk <C-w>k
+nnoremap <Space>wh <C-w>h
+nnoremap <Space>wl <C-w>l
+" 关闭窗口
+nnoremap <Space>wc <C-w>c
+" 上下分屏
+nnoremap <Space>ws <C-w>s
+" 左右分屏
+nnoremap <Space>wv <C-w>v
+
+
+
+"""""""""""""" 块选择
+" 设置快捷键将选中文本块复制至系统剪贴板
+vnoremap <leader>y "+y
+vnoremap <C-c> "+y
+vnoremap <C-v> "+p
+
+" 设置快捷键将系统剪贴板内容粘贴至 vim
+noremap <leader>p "+p
+vnoremap <leader>p "+p
+inoremap <leader>p <Esc>"+p
