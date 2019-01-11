@@ -61,6 +61,12 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-d> <Delete>
 inoremap <C-a> <Home>
+
+inoremap <C-]> <C-X><C-]>
+inoremap <C-F> <C-X><C-F>
+inoremap <C-D> <C-X><C-D>
+inoremap <C-L> <C-X><C-L>
+
 "inoremap <C-i> <End>
 
 
@@ -89,3 +95,7 @@ vnoremap <C-v> "+p
 noremap <leader>p "+p
 vnoremap <leader>p "+p
 inoremap <leader>p <Esc>"+p
+
+set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
+
+colorscheme morning
