@@ -98,4 +98,77 @@ inoremap <leader>p <Esc>"+p
 
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 
-colorscheme morning
+" colorscheme morning
+set t_Co=256
+set term=xterm-256color
+set background=dark
+
+
+" =========
+" 功能函数
+" =========
+" 获取当前目录
+func GetPWD()
+    return substitute(getcwd(), "", "", "g")
+endf
+
+" 命令行于状态行
+set ch=1
+set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]\ %l,%c\ %=\ %P
+set ls=2 " 始终显示状态行
+
+" 行号和标尺
+set number 
+set ruler
+set rulerformat=%15(%c%V\ %p%%%)
+
+" 缩进 智能对齐方式
+set autoindent
+set smartindent
+
+" 行控制
+set linebreak
+set nocompatible
+set textwidth=80
+set wrap
+
+"置粘贴模式，这样粘贴过来的程序代码就不会错位了。
+set paste
+
+
+"设置VIM状态栏
+set laststatus=2 "显示状态栏(默认值为1, 无法显示状态栏)
+set statusline= " [%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
+" set statusline+=%2*%-3.3n%0*\ " buffer number
+set statusline+=[File]\ %f\ " file name
+set statusline+=%h%1*%m%r%w%0* " flag
+set statusline+=[
+if v:version >= 600
+    set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
+    set statusline+=%{&fileencoding}, " encoding
+endif
+set statusline+=%{&fileformat}] " file format
+set statusline+=%w\ \ [PWD]\ %r%{GetPWD()} " file format
+set statusline+=%= " right align
+" set statusline+=%2*0x%-8B\ " current char
+set statusline+=0x%-8B\ " current char
+set statusline+=[Line]\ %-14.(%l,%c%V%)\ %<%P " offset
+
+
+" =========
+" 不显示行数
+" 命令行调用:call HideNumber()
+" =========
+func HideNumber()
+    set nonumber
+    set norelativenumber
+endf
+
+" =========
+" 显示行数
+" 命令行调用:call ShowNumber()
+" =========
+function ShowNumber()
+    set number
+    set relativenumber
+endfunction
