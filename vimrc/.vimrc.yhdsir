@@ -172,3 +172,11 @@ function ShowNumber()
     set number
     set relativenumber
 endfunction
+
+
+"置粘贴模式，这样粘贴过来的程序代码就不会错位了。
+" set paste
+
+set showcmd " 在底部显示上一条命令
+
+set wildmenu " 打开底部命令行的自动补全
